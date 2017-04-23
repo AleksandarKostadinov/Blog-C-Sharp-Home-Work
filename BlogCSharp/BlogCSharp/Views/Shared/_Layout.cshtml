@@ -17,6 +17,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("SOFTUNI BLOG", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Create Article", "Create", "Article", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("List Articles", "List", "Article", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")

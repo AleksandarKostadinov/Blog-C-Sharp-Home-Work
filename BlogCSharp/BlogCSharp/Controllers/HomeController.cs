@@ -10,7 +10,7 @@ namespace BlogCSharp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("list", "Article");
         }
     }
 }
