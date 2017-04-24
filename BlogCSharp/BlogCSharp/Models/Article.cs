@@ -16,5 +16,10 @@
         public string AuthorId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
+
+        public bool IsAuthor(string authorId)
+        {
+            return this.AuthorId == authorId;
+        }
     }
 }

@@ -83,7 +83,7 @@
                     .Where(a => a.Id == id)
                     .FirstOrDefault();
 
-                if (article == null)
+                if (article == null || !IsAuthorized(article))
                 {
                     return HttpNotFound();
                 }
@@ -107,7 +107,7 @@
                     .Where(a => a.Id == id)
                     .FirstOrDefault();
 
-                if (article == null)
+                if (article == null || !IsAuthorized(article))
                 {
                     return HttpNotFound();
                 }
@@ -134,7 +134,7 @@
                 var article = db.Articles
                     .Find(id);
 
-                if (article == null)
+                if (article == null || !IsAuthorized(article))
                 {
                     return HttpNotFound();
                 }
@@ -160,6 +160,11 @@
                 {
                     var article = db.Articles.Find(model.Id);
 
+                    if (article == null || !IsAuthorized(article))
+                    {
+                        return HttpNotFound();
+                    }
+
                     article.Title = model.Title;
                     article.Content = model.Content;
 
@@ -170,6 +175,14 @@
             }
 
             return View(model);
+        }
+
+        private bool IsAuthorized(Article article)
+        {
+            var isAdmin = this.User.IsInRole("Admin");
+            var isAuthor = article.IsAuthor(this.User.Identity.GetUserId());
+
+            return isAdmin || isAuthor;
         }
     }
 }
