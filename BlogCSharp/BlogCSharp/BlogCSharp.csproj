@@ -199,6 +199,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BlogDataBContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Views\Article\List.cshtml" />
     <Content Include="Views\Article\Details.cshtml" />
     <Content Include="Views\Article\Delete.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
